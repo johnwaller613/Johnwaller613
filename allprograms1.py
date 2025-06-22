@@ -44,7 +44,19 @@ def all_programs():
             print("\n", result)
             c = input("would you like to continue the equation? enter yes or no:\n")
 
+    def calculator2():
+        a = input("enter equation. start with +. every part separate. e.g. +1+1 *2 -3. output will be 1\n").split()
+        b = 0
+        for i in a:
+            if all(char in("+.-/%*1234567890")for char in i):
+                b = eval(f"{b}{i}")
+                print(f"\n{b}")
+            else:
+                print(f"stopped at invalid {i}\n")
+                calculator2()
+                return
         
+    
     def length():
         ina = input("enter number\n")
         try: a = int(ina)
@@ -139,6 +151,7 @@ def all_programs():
     elif a == "temp" or a == "temperature": temp()
     elif a in ("jewishweights", "jewish weights"):
         jewishWeights()
+    elif a == "calculator2": calculator2()
     elif a in ("m2km", "m-km", "miletokm", "mtokm", "m/km", "mile2km"): m2km()
     elif a in ("km2m", "km-m", "km2mile", "km/m"):
         km2m()
